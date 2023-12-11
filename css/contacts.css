@@ -55,6 +55,10 @@ body {
     .main {
         margin-top: 20px;
     }
+
+    footer {
+        padding-bottom: 60px !important;
+    }
 }
 
 
