@@ -197,6 +197,7 @@ body, html {
 
 .article__image {
     width: 90%;
+    max-height: 200px;
     height: auto;
     object-fit: cover;
     background-repeat: no-repeat;

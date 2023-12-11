@@ -34,6 +34,7 @@
 
 .main_wrapper > .article__image {
     width: 55%;
+    max-height: 350px;
 }
 
 .article__preview_inner_text {
