@@ -357,3 +357,14 @@ body, html {
 }
 
 
+.active {
+    background-color: black !important;
+}
+
+.active > a {
+    color: white !important;
+}
+
+.active:hover {
+    background-color: black !important;
+}
