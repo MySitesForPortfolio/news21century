@@ -1,3 +1,10 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
 .new_article_wrapper {
     width: 80vw;
     margin-left: auto;
@@ -63,6 +70,10 @@ label {
 .new_article__button:hover {
     background-color: rgb(0, 255, 170);
     box-shadow: 0 0 30px rgba(0, 255, 170, .8);
+}
+
+footer {
+    margin-top: 20px !important;
 }
 
 @media (max-width: 800px) {
