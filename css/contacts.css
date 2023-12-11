@@ -23,6 +23,7 @@ body {
 .contacts__head {
     font-weight: 700;
     font-size: 30px;
+    text-align: center;
     opacity: .8;
 }
 
@@ -56,8 +57,18 @@ body {
         margin-top: 20px;
     }
 
-    footer {
-        padding-bottom: 60px !important;
+    .main::before {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    iframe {
+        width: 80vw;
+    }
+
+    .contacts_wrapper {
+        width: 80vw;
     }
 }
 
