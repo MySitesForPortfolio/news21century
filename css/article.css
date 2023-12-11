@@ -47,7 +47,8 @@
 .main_wrapper > .article__main_inner_text {
     display: inline;
     width: 90%;
-    line-height: 25px;
+    line-height: 28px;
+    font-size: 20px;
     text-align: left;
     word-wrap: break-word;
     margin-left: 20px;
@@ -92,7 +93,7 @@
     }
 
     .main_wrapper > .article__name {
-        font-size: 20px;
+        font-size: 24px;
         width: 90%;
     }
 }
@@ -128,11 +129,11 @@
     }
 
     .article__preview_inner_text {
-        font-size: 10px;
+        font-size: 16px;
     }
 
     .main_wrapper .article__main_inner_text {
-        font-size: 13px;
+        font-size: 18px;
     }
 }
 
@@ -160,12 +161,13 @@
     }
 
     .main_wrapper .article__name {
-        font-size: 15px;
+        font-size: 22px;
     }
 
     .main_wrapper .article__main_inner_text {
-        font-size: 12px;
-        line-height: 17px;
+        font-size: 18px;
+        text-align: left !important;
+        line-height: 23px;
     }
 }
 
