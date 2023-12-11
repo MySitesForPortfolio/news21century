@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/article.css">
+    <title>article</title>
+</head>
+<body>
+
+    <header class="header">
+
+        <div class="header__left-wrapper">
+            <div class="header__logo"><a href="./index.html">Громкие события 21 века</a></div>
+        </div>
+
+        <div class="header__right-wrapper">
+            <ul class="header__navigation-item">
+                <li class="header__navigation-link"><a href="#">Поиск</a></li>
+                <li class="header__navigation-link"><a href="#">О нас</a></li>
+                <li class="header__navigation-link"><a href="#">Контакты</a></li>
+                <li class="header__navigation-link"><a href="./create_article.html">Ваша новость</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+
+    <div class="main_wrapper"></div>
+
+    <div class="current_articles"></div>
+
+    <footer class="footer"></footer>
+
+    <script>
+        const wrapper = document.querySelector('.main_wrapper');
+        const currentArticles = document.querySelector('.current_articles');
+        const article = document.querySelectorAll('.article');
+
+        const contentWrapper = document.createElement("div");
+        contentWrapper.className = "content_wrapper";
+        contentWrapper.innerHTML = localStorage.getItem("next_content");
+
+        wrapper.insertAdjacentHTML('afterbegin', localStorage.getItem("main_content"));
+        currentArticles.insertAdjacentHTML('beforeend', localStorage.getItem("next_category_name"));
+        currentArticles.insertAdjacentHTML('beforeend', contentWrapper.outerHTML);
+
+        currentArticles.onclick = function(event) {
+            const target = event.target.closest('article');
+
+            if (!target || target.tagName != 'ARTICLE') return;
+
+            wrapper.innerHTML = target.innerHTML;
+            localStorage.setItem("main_content", target.innerHTML);
+            window.scrollTo(0, 0);
+        };
+
+        localStorage.removeItem("next_content");
+        localStorage.removeItem("next_category_name");
+        localStorage.removeItem("main_content");
+    </script>
+
+    <script src="./immutable_obj.js"></script>
+
+</body>
+</html>

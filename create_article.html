@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/create_article.css">
+    <title>New article</title>
+</head>
+<body>
+
+    <header class="header">
+
+        <div class="header__left-wrapper">
+            <div class="header__logo"><a href="./index.html">Громкие события 21 века</a></div>
+        </div>
+
+        <div class="header__right-wrapper">
+            <ul class="header__navigation-item">
+                <li class="header__navigation-link"><a href="#">Поиск</a></li>
+                <li class="header__navigation-link"><a href="#">О нас</a></li>
+                <li class="header__navigation-link"><a href="#">Контакты</a></li>
+                <li class="header__navigation-link"><a href="#">Ваша новость</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+    <form class="new_article_wrapper">
+        <h2 class="new_article__header">Написать статью</h2>
+
+        <div class="new_article__name_wrapper">
+            <label for="name">Укажите заголовок события</label><br>
+            <input type="text" class="new_article__name" id="name" placeholder="Заголовок..." required>
+        </div>
+
+        <div class="new_article__name_wrapper">
+            <label for="inner">Напишите все, что вам известно о событии</label><br>
+            <textarea type="text" class="new_article__inner" id="inner" placeholder="Опишите событие..." required></textarea>
+        </div>
+
+        <div class="new_article__file">
+            <label for="file">Выберите изображение</label><br>
+            <input style="margin-bottom: 25px; margin-left: 10px; margin-top: 5px;" type="file" class="file" id="file">
+        </div>
+        
+        <div>
+            <label for="datepicker">Укажите дату события</label><br>
+            <input style="position: relative; left: 10px;" type="date" id="datepicker" class="date" min="2000-01-01" required>
+        </div>
+
+        <div style="position: relative; left: 10px; margin-top: 20px;">
+            <input type="checkbox" id="check" required><label for="check" style="font-size: 18px; font-weight: 400;">Я подтверждаю, что вся введенная мной информация верна</label>
+        </div>
+
+        <button class="new_article__button">Опубликовать</button>
+    </form>
+
+    <div class="wrapper">
+
+    </div>
+
+
+    <footer class="footer"></footer>
+
+    <script>
+
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('datepicker').setAttribute('max', today);
+
+        const newArticleImg = document.createElement("img");
+        newArticleImg.className = 'article__image bottom-indent';
+
+        document.getElementById('file').onchange = function (evt) {
+            var tgt = evt.target || window.event.srcElement, files = tgt.files;
+            console.log(evt.target);
+
+            if (FileReader && files && files.length) {
+                var fr = new FileReader();
+                fr.onload = function () {
+                    newArticleImg.src = fr.result;
+                }
+                fr.readAsDataURL(files[0]);
+            }
+        }
+        
+        document.querySelector('.new_article_wrapper').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (this.checkValidity()) {
+                localStorage.clear();
+
+                const newArticleWrapper = document.createElement("article");
+                newArticleWrapper.className = 'article';
+
+                const newArticleHead = document.createElement("div");
+                newArticleHead.className = 'article__name bottom-indent';
+                newArticleHead.innerHTML = document.querySelector('.new_article__name').value;
+
+                const newArticlePreview = document.createElement("div");
+                newArticlePreview.className = 'article__preview_inner_text bottom-indent';
+                newArticlePreview.innerHTML = document.querySelector('.new_article__inner').value.length <= 100 ? document.querySelector('.new_article__inner').value : document.querySelector('.new_article__inner').value.slice(0, 100) + '...';
+
+                const newArticleMain = document.createElement("div");
+                newArticleMain.className = 'article__main_inner_text bottom-indent';
+                newArticleMain.innerHTML = document.querySelector('.new_article__inner').value;
+                
+                const newArticleDate = document.createElement("div");
+                newArticleDate.className = 'article__source';
+                newArticleDate.innerHTML = document.querySelector('.date').value;
+
+                const notChecked = document.createElement("div");
+                notChecked.className = 'not_checked';
+                notChecked.innerHTML = 'не проверено';
+
+                newArticleWrapper.append(newArticleHead);
+                newArticleWrapper.append(newArticlePreview);
+                newArticleWrapper.append(newArticleMain);
+                newArticleWrapper.append(newArticleImg);
+                newArticleWrapper.append(newArticleDate);
+                newArticleWrapper.append(notChecked);
+
+                localStorage.setItem("new_article", newArticleWrapper.outerHTML);
+                localStorage.setItem("new_article_category", newArticleDate.innerHTML.slice(0, 4));
+                location.href = './index.html';
+            }
+        });
+
+        
+
+
+
+    </script>
+
+    <script src="./immutable_obj.js"></script>
+    
+</body>
+</html>
