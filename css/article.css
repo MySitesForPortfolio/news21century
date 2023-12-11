@@ -119,6 +119,10 @@
 }
 
 @media (max-width: 650px) {
+    .main_wrapper {
+        width: 90vw;
+    }
+
     .article__name {
         font-size: 13px;
     }
@@ -133,6 +137,12 @@
 }
 
 @media (max-width: 520px) {
+    .main_wrapper {
+        width: 100vw;
+        border: none;
+        padding: 10px 0;
+    }
+
     .content_wrapper {
         grid-template-columns: 1fr;
     }
