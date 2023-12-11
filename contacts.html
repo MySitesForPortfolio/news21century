@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/article.css">
-    <title>article</title>
+    <link rel="stylesheet" href="./css/contacts.css">
+    <title>Contacts</title>
 </head>
 <body>
-
+    
     <header class="header">
 
         <div class="header__left-wrapper">
@@ -26,9 +26,28 @@
     </header>
 
 
-    <div class="main_wrapper"></div>
+    <main class="main">
+        <div class="contacts_wrapper">
+            <h3 class="contacts__head">Связаться с нами:</h3>
 
-    <div class="current_articles"></div>
+            <div class="contacts__info_wrapper">
+                <h4 class="contacts__description">Наша почта:</h4>
+                <a class="contacts__info" href="mailto:info@mail.ru">info@mail.ru</a>
+            </div>
+
+            <div class="contacts__info_wrapper">
+                <h4 class="contacts__description">Телефон:</h4>
+                <a class="contacts__info" href="tel:+79999999999">+7 (999) 999-99-99</a>
+            </div>
+
+            <div class="contacts__info_wrapper">
+                <h4 class="contacts__description">Адрес:</h4>
+                <a class="contacts__info" href="tel:+79999999999">пр. Вернадского, 78</a>
+            </div>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11313.05555895852!2d37.48233250232353!3d55.66765786691836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54dc1d23b51c3%3A0x74763ed59c81ccb6!2z0KDQotCjINCc0JjQoNCt0JA!5e0!3m2!1sru!2sru!4v1702297184091!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </main>
+
 
     <div class="mobile_menu__wrapper">
         <div class="mobile_menu__item_wrapper" onclick="location.href='./index.html'">
@@ -52,6 +71,9 @@
         </div>
     </div>
 
+
+
+
     <footer class="footer">
         <div class="footer__info">
             © 2023 Cтудент РТУ МИРЭА
@@ -61,31 +83,6 @@
         </div>
     </footer>
 
-    <script>
-        const wrapper = document.querySelector('.main_wrapper');
-        const currentArticles = document.querySelector('.current_articles');
-        const article = document.querySelectorAll('.article');
-
-        const contentWrapper = document.createElement("div");
-        contentWrapper.className = "content_wrapper";
-        contentWrapper.innerHTML = localStorage.getItem("next_content");
-
-        wrapper.insertAdjacentHTML('afterbegin', localStorage.getItem("main_content"));
-        currentArticles.insertAdjacentHTML('beforeend', localStorage.getItem("next_category_name"));
-        currentArticles.insertAdjacentHTML('beforeend', contentWrapper.outerHTML);
-
-        currentArticles.onclick = function(event) {
-            const target = event.target.closest('article');
-
-            if (!target || target.tagName != 'ARTICLE') return;
-
-            wrapper.innerHTML = target.innerHTML;
-            localStorage.setItem("main_content", target.innerHTML);
-            window.scrollTo(0, 0);
-        };
-    </script>
-
     <script src="./immutable_obj.js"></script>
-
 </body>
 </html>
