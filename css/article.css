@@ -20,8 +20,8 @@
 }
 
 .content_wrapper {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 12px;
 }
 
@@ -32,8 +32,12 @@
     width: 80vw;
 }
 
-.article {
-    width: 25vw;
+.main_wrapper > .article__image {
+    width: 55%;
+}
+
+.article__preview_inner_text {
+    width: 95%;
 }
 
 .main_wrapper > .article__name {
@@ -59,3 +63,111 @@
 }
 
 
+
+@media (max-width: 1200px) {
+    .article__name {
+        font-size: 14px;
+        width: 95%;
+    }
+
+    .article__preview_inner_text {
+        font-size: 12px;
+    }
+
+    .article__image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 950px) {
+    .main_wrapper > .article__image {
+        width: 80%;
+    }
+}
+
+@media (max-width: 800px) {
+    .main_wrapper {
+        margin-top: 20px;
+    }
+
+    .main_wrapper > .article__name {
+        font-size: 20px;
+        width: 90%;
+    }
+}
+
+@media (max-width: 850px) {
+
+    .content_wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .article__name {
+        font-size: 16px;
+        width: 95%;
+    }
+
+    .article__preview_inner_text {
+        font-size: 13px;
+    }
+
+    .article__image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 650px) {
+    .article__name {
+        font-size: 13px;
+    }
+
+    .article__preview_inner_text {
+        font-size: 10px;
+    }
+
+    .main_wrapper .article__main_inner_text {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 520px) {
+    .content_wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .article__name {
+        font-size: 15px;
+    }
+
+    .article__preview_inner_text {
+        font-size: 11px;
+    }
+
+    .article {
+        width: auto;
+    }
+
+    .main_wrapper .article__name {
+        font-size: 15px;
+    }
+
+    .main_wrapper .article__main_inner_text {
+        font-size: 12px;
+        line-height: 17px;
+    }
+}
+
+@media (max-width: 450px) {
+    .main_wrapper .article__main_inner_text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .article {
+        width: auto;
+    }
+    
+}
