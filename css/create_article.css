@@ -2,6 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    row-gap: 30px;
 }
 
 
@@ -72,9 +73,7 @@ label {
     box-shadow: 0 0 30px rgba(0, 255, 170, .8);
 }
 
-footer {
-    margin-top: 20px !important;
-}
+
 
 @media (max-width: 800px) {
     .new_article_wrapper {
@@ -110,26 +109,20 @@ footer {
     }
 
     .new_article__header {
-        font-size: 22px;
-    }
-}
-
-@media (max-width: 470px) {
-    .new_article__header {
         font-size: 18px;
     }
 
     label {
         font-size: 12px !important;
     }
-}
 
-@media (max-width: 470px) {
     .new_article_wrapper {
         width: 94vw;
         padding: 0;
         border: none;
     }
+
+    
 }
 
 

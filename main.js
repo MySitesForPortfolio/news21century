@@ -10,10 +10,8 @@ var swiper = new Swiper('.swiper', {
 const categoryName = document.createElement("div");
 categoryName.className = "category__name top-indent bottom-indent";
 categoryName.innerHTML = "Интересное";
-
 const allArticle = document.querySelectorAll(".article");
 const RandomArticles = setRandomArticles(allArticle);
-
 function setRandomArticles(array) {
     let result = "";
     const randValues = new Set();
@@ -26,9 +24,7 @@ function setRandomArticles(array) {
     });
     return result;
 }
-
 const articleWrapper = document.querySelectorAll(".articles__wrapper");
-
 articleWrapper.forEach(item => item.onclick = function(event) {
     const target = event.target.closest('article');
 
