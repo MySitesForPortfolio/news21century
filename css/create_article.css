@@ -77,10 +77,10 @@ label {
 
 @media (max-width: 800px) {
     .new_article_wrapper {
-        margin-top: 80px;
-        position: relative;
+        margin-top: 18px;
+        /* position: relative;
         top: 50%;
-        transform: translateY(-55%);
+        transform: translateY(-55%); */
     }
 }
 
@@ -104,9 +104,9 @@ label {
         margin-bottom: 5px;
     }
 
-    input {
+    /* input {
         margin-bottom: 5px !important;
-    }
+    } */
 
     .new_article__header {
         font-size: 18px;
@@ -122,7 +122,9 @@ label {
         border: none;
     }
 
-    
+    footer {
+        margin-top: 30px !important;
+    }
 }
 
 
