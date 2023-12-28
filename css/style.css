@@ -235,11 +235,11 @@ body, html {
 
     .article__name {
         font-weight: 700;
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .article__preview_inner_text {
-        font-size: 11px;
+        font-size: 15px;
     }
 
     .articles__wrapper {
